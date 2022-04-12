@@ -1,4 +1,4 @@
-let js = "amazing";
+/*let js = "amazing";
 if (js === "amazing") alert("javascript is fun!");
 console.log(40 * 8 + 23 - 10); // explicitly output the result to console.
 
@@ -20,4 +20,25 @@ console.log(population);
 // about single quotes and double quotes https://stackoverflow.com/questions/242813/when-should-i-use-double-or-single-quotes-in-javascript
 console.log(firstName);
 console.log(firstName);
-console.log(firstName);
+console.log(firstName);*/
+
+true;
+console.log(true);
+
+let javascriptIsFun = true;
+console.log(typeof(javascriptIsFun));
+console.log(typeof 23);
+console.log(typeof 'jones');
+
+javascriptIsFun = "YES!"; // Dynamic typing works (automatically change the type of variable)
+console.log(typeof(javascriptIsFun));
+
+let year;
+console.log(year);
+console.log(typeof(year)); // undefined
+
+year = 1991;
+
+console.log(typeof(year)); // number
+console.log(typeof(null)); // undefined? -> Object (is actually null it is bug but not fixed due to legacy reasons?)
+
