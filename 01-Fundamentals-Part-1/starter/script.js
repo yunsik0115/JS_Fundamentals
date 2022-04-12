@@ -22,7 +22,7 @@ console.log(firstName);
 console.log(firstName);
 console.log(firstName);*/
 
-true;
+/*true;
 console.log(true);
 
 let javascriptIsFun = true;
@@ -40,5 +40,14 @@ console.log(typeof(year)); // undefined
 year = 1991;
 
 console.log(typeof(year)); // number
-console.log(typeof(null)); // undefined? -> Object (is actually null it is bug but not fixed due to legacy reasons?)
+console.log(typeof(null)); // undefined? -> Object (is actually null it is bug but not fixed due to legacy reasons?)*/
 
+let age = 30;
+age = 31; // mutating the age variable(set variable to something else, reassigning === mutating)
+// for mutating variables using let is appropriate
+
+const birthYear = 1991; // const cannot re-assign the value (immutable variable) must be initialized at declaration.
+
+// birthYear = 1990;
+// var must be avoided. (prior to ES6)
+// var(function scoped) / let(block scoped) has difference
