@@ -168,7 +168,7 @@ if (height){
     console.log("height is undefined");
 } */
 
-const age = 18;
+/*const age = 18;
 if (age === 18){ // return only true or false value
     console.log('you just became an adult'); // strictly equal
 }
@@ -184,4 +184,28 @@ if(favoriteNumber == 23){
     console.log("23 is an amazaing number!");
 } else{
     console.log("it is not 23");
+}*/
+
+const hasDriversLicense = true;
+const hasGoodVision = true;
+
+console.log(hasDriversLicense && hasGoodVision); // AND
+console.log(hasDriversLicense || hasGoodVision); // OR
+console.log(!hasDriversLicense);
+
+const shouldDrive = hasDriversLicense && hasGoodVision;
+
+if(shouldDrive){
+    console.log("Sarah is able to drive");
+} else {
+    console.log("Sarah is not able to drive");
+}
+
+const isTired = false;
+console.log(hasDriversLicense && hasGoodVision && !isTired);
+
+if(hasDriversLicense && hasGoodVision && !isTired){
+    console.log("Sarah is able to drive");
+} else {
+    console.log("Sarah is not able to drive");
 }
