@@ -186,7 +186,7 @@ if(favoriteNumber == 23){
     console.log("it is not 23");
 }*/
 
-const hasDriversLicense = true;
+/*const hasDriversLicense = true;
 const hasGoodVision = true;
 
 console.log(hasDriversLicense && hasGoodVision); // AND
@@ -208,4 +208,15 @@ if(hasDriversLicense && hasGoodVision && !isTired){
     console.log("Sarah is able to drive");
 } else {
     console.log("Sarah is not able to drive");
+} */
+
+const day = 'monday';
+
+switch(day) {
+    case 'monday' : console.log("It's Monday"); break;
+    case 'tuesday' : console.log("It's tuesday"); break;
+    case 'wednesday' : console.log("It's wednesday'"); break;
+    case 'thursday' : console.log("It's thursday'"); break;
+    case 'friday' : console.log("It's friday"); break;
+    default : console.log("Its still a great day to learn javascript!");
 }
