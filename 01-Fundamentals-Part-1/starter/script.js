@@ -101,7 +101,7 @@ console.log(jonasNew);
 
 console.log('string with \n\ multiple \n\ lines');*/
 
-const age = 19;
+/*const age = 19;
 const isOldEnough = (age >= 18);
 
 console.log(isOldEnough);
@@ -124,4 +124,23 @@ if(birthYear <= 2000){
     century = 21;
 }
 
-console.log(century);
+console.log(century);*/
+
+// type conversion and type cohersion.
+const inputYear = '1991';
+console.log(inputYear + 18); // 199118
+
+console.log((Number(inputYear) + 18)); // Number Function -> casting string to int(parseint)
+console.log(Number('Jonas')); // NAN
+console.log(typeof NaN);
+
+console.log(String(23), 23);
+
+// start of type cohersion
+console.log("I am " + 23 + ' years old'); // 23 automatically casted to string.
+console.log('23' - '10' - 3); // 23 - 10 - 3 = 10
+console.log('23' / '2');
+
+let n = '1' + '1';
+n = n - 1;
+console.log(n);
