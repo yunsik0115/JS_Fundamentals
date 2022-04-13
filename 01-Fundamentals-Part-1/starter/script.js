@@ -86,7 +86,7 @@ const year = 2037;
 const jonas = "I'm " + firstName + ', a ' + (year-birthYear) + ' years old';
 console.log(jonas);*/
 
-const firstName = "Jonas";
+/*const firstName = "Jonas";
 const year = 2022;
 const job = "teacher";
 const birthYear = 1991;
@@ -99,4 +99,29 @@ console.log(jonas);
 const jonasNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`; // backticks
 console.log(jonasNew);
 
-console.log('string with \n\ multiple \n\ lines');
+console.log('string with \n\ multiple \n\ lines');*/
+
+const age = 19;
+const isOldEnough = (age >= 18);
+
+console.log(isOldEnough);
+
+// is same with
+
+if(isOldEnough){
+    console.log("Sarah can Start Driving License 😊")
+} else {
+    const yearsleft = age - 18;
+    console.log("Sarah cannot start driving license Wait another" + `${yearsleft} years`);
+}
+
+const birthYear = 1991;
+
+let century;
+if(birthYear <= 2000){
+    century = 20;
+} else {
+    century = 21;
+}
+
+console.log(century);
