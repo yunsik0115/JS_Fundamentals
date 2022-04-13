@@ -126,7 +126,7 @@ if(birthYear <= 2000){
 
 console.log(century);*/
 
-// type conversion and type cohersion.
+/*// type conversion and type cohersion.
 const inputYear = '1991';
 console.log(inputYear + 18); // 199118
 
@@ -143,4 +143,27 @@ console.log('23' / '2');
 
 let n = '1' + '1';
 n = n - 1;
-console.log(n);
+console.log(n);*/
+
+// Falsy and Truthy Values.
+
+// 0 '' undefined null Nan => All Falsy, Anything else deemed as truthy value.
+console.log(Boolean(0));
+console.log(Boolean(undefined)); 
+console.log(Boolean('Jonas'));
+console.log(Boolean({}));
+console.log(Boolean(''));
+
+const money = 0;
+if(money){
+    console.log("Don't spend it all");
+} else {
+    console.log("You should get a job!");
+}
+
+let height;
+if (height){
+    console.log("YAY! height is defined");
+} else{
+    console.log("height is undefined");
+}
