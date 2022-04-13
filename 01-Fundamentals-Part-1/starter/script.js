@@ -148,7 +148,7 @@ console.log(n);*/
 // Falsy and Truthy Values.
 
 // 0 '' undefined null Nan => All Falsy, Anything else deemed as truthy value.
-console.log(Boolean(0));
+/*console.log(Boolean(0));
 console.log(Boolean(undefined)); 
 console.log(Boolean('Jonas'));
 console.log(Boolean({}));
@@ -166,4 +166,22 @@ if (height){
     console.log("YAY! height is defined");
 } else{
     console.log("height is undefined");
+} */
+
+const age = 18;
+if (age === 18){ // return only true or false value
+    console.log('you just became an adult'); // strictly equal
+}
+
+if (age == '18'){ // loosely equal
+    console.log('type cohersion automatically happens!');
+}
+
+const favoriteNumber = Number(prompt("what's your favorite number?")); // prompt get value by string, need casting for type conversion.
+console.log(favoriteNumber);
+
+if(favoriteNumber == 23){
+    console.log("23 is an amazaing number!");
+} else{
+    console.log("it is not 23");
 }
