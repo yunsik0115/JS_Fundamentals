@@ -52,7 +52,7 @@ const birthYear = 1991; // const cannot re-assign the value (immutable variable)
 // var must be avoided. (prior to ES6)
 // var(function scoped) / let(block scoped) has difference*/
 
-const now = 2037;
+/*const now = 2037;
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
 console.log(ageJonas, ageSarah);
@@ -76,4 +76,27 @@ console.log(x);
 console.log(ageJonas > ageSarah);
 console.log(ageSarah >= ageJonas);
 
-const isFullAge = ageJonas >= 30;
+const isFullAge = ageJonas >= 30;*/
+
+/*const firstName = "Jonas";
+const lastName = "Schmedtmann";
+const birthYear = 1991;
+const year = 2037;
+
+const jonas = "I'm " + firstName + ', a ' + (year-birthYear) + ' years old';
+console.log(jonas);*/
+
+const firstName = "Jonas";
+const year = 2022;
+const job = "teacher";
+const birthYear = 1991;
+
+const jonas = "I'm " + firstName + ', a ' + (year-birthYear) + ' years old ' + job + '!';
+
+console.log(jonas);
+
+// What is Template Literal?
+const jonasNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`; // backticks
+console.log(jonasNew);
+
+console.log('string with \n\ multiple \n\ lines');
