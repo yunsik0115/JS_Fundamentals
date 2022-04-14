@@ -178,6 +178,3 @@ console.log(jonas[interestedIn]); // create attribute when there is no such attr
 jonas.location = 'Portugal';
 jonas['twitter'] = '@jonasschemedtman';
 console.log(jonas);
-
-// Challenge
-// 
