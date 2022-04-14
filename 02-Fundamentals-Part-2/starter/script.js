@@ -119,7 +119,7 @@ for(let index=0; index<friends.length; index++)
 {
     console.log(calcAge(years[index]));
 } */
-
+/*
 // add Elements
 const friends = ['Michael', 'Steven', 'Peter']
 const newLength = friends.push('Jay');
@@ -178,3 +178,31 @@ console.log(jonas[interestedIn]); // create attribute when there is no such attr
 jonas.location = 'Portugal';
 jonas['twitter'] = '@jonasschemedtman';
 console.log(jonas);
+
+*/
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName :'Schemedtmann',
+    birthYear : 1991,
+    age : 2037 - 1991,
+    job : 'teacher',
+    friends : ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense : true, // It can have all data types as attribute.
+
+    /*calcAge: function(birthYear){ // Function Expression
+        // return 2037 - birthYear;
+        // refactor below
+        // console.log(this); --> not needed just for presentation of result.
+        return 2037 - this.birthYear;*/
+
+        calcAge : function() {
+            this.age = 2037 - this.birthYear;
+            return this.age;
+        }
+    };
+
+// console.log(jonas.calcAge(1991));
+// console.log(jonas['calcAge'](1991)); not recommended(typo can be occurred) set attribute manually. code isn't dry rather use this method on class attribute(function)
+
+console.log(jonas.calcAge());
