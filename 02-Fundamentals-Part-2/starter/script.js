@@ -141,3 +141,20 @@ console.log(friends);
 console.log(friends.indexOf('Steven'));
 console.log(friends.includes('Steven')); // is this include (<parameter>) ?
 // includes -> strict, type must be same, is like === operator
+
+const jonasArray = [
+    'Jonas',
+    'Schemedtmann',
+    2037-1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven']
+]
+ // By Array, indes does matter.
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName :'Schemedtmann',
+    age : 2037 - 1991,
+    job : 'teacher',
+    friends : ['Michael', 'Peter', 'Steven']
+}; // By Objects index doesn't matter
