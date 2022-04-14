@@ -82,7 +82,7 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 console.log(yearsUntilRetirement(1980, "Bob"));
 console.log(yearsUntilRetirement(1991, "Jonas"));*/
 
-const friend1 = 'Michael';
+/*const friend1 = 'Michael';
 const friend2 = 'Steven';
 const friend3 = 'Peter';
 
@@ -118,5 +118,26 @@ console.log(calcAge(years)); // Conversion to String happens, no meaningful resu
 for(let index=0; index<friends.length; index++)
 {
     console.log(calcAge(years[index]));
-}
+} */
 
+// add Elements
+const friends = ['Michael', 'Steven', 'Peter']
+const newLength = friends.push('Jay');
+console.log("add result :", friends);
+console.log(friends.length);
+
+friends.unshift("John");
+console.log("unshift result :", friends);
+
+// Delete Elements
+friends.pop();
+const popped = friends.pop();
+console.log(popped); // delete last element
+console.log(friends);
+
+friends.shift(); // delete first element
+console.log(friends);
+
+console.log(friends.indexOf('Steven'));
+console.log(friends.includes('Steven')); // is this include (<parameter>) ?
+// includes -> strict, type must be same, is like === operator
