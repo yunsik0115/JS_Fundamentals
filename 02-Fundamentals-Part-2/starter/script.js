@@ -158,3 +158,26 @@ const jonas = {
     job : 'teacher',
     friends : ['Michael', 'Peter', 'Steven']
 }; // By Objects index doesn't matter
+
+console.log(jonas);
+
+// Ways to Getting the property of object
+console.log(jonas.lastName); // by using dot operator.
+console.log(jonas['lastName']); // by using brackets. Be advised, the order of the class is not important.
+
+const nameKey = 'Name';
+console.log(jonas['first' + nameKey]);
+console.log(jonas['last'+nameKey]);
+
+// but console.log(jonas.'last'+nameKey) -> this won't work.
+
+const interestedIn = prompt("What do You want to know about Jonas choose, firstName, lastName, age, job and friends");
+console.log(jonas.interestedIn); // undefined (no attribute in class jonas)
+console.log(jonas[interestedIn]); // create attribute when there is no such attribute.
+
+jonas.location = 'Portugal';
+jonas['twitter'] = '@jonasschemedtman';
+console.log(jonas);
+
+// Challenge
+// 
