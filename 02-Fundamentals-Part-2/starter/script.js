@@ -65,7 +65,7 @@ console.log(age2);
 /* Matter of personal Preference Expression vs Declaration */
 
 // Arrow Function
-const calcAge3 = birthYear => 2037 - birthYear;
+/*const calcAge3 = birthYear => 2037 - birthYear;
 const age3 = calcAge3(1991);
 console.log(calcAge3);
 console.log(typeof(calcAge3));
@@ -80,4 +80,43 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 // Arrow function -> many parameter -> get complicated.
 
 console.log(yearsUntilRetirement(1980, "Bob"));
-console.log(yearsUntilRetirement(1991, "Jonas"));
+console.log(yearsUntilRetirement(1991, "Jonas"));*/
+
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
+
+const friends = ['Michael', 'Steven', 'Peter']; // Or
+//const years = new Array(1991,1992,1993,2008,2022)
+console.log(friends);
+
+for(let index=0; index<friends.length; index++)
+{
+    console.log(friends[index]);
+}
+
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+friends[2] = 'Jay';
+console.log(friends);
+// friends = ['',] -> Illegal to replace an array like this.
+
+const firstName = 'Jonas'
+const jonas = [firstName, 'Schemdtmann', 2037-1991, 'teacher', friends];
+console.log(jonas);
+
+//Exercise
+const calcAge = function(birthYear){
+    return 2037 - birthYear;
+}
+
+const years = [1990,1967,2002,2010,2018];
+calcAge(years); // Can not be executed
+console.log(calcAge(years)); // Conversion to String happens, no meaningful result occur.
+
+for(let index=0; index<friends.length; index++)
+{
+    console.log(calcAge(years[index]));
+}
+
