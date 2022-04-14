@@ -39,6 +39,7 @@ console.log(fruitProcessor(5,0));
 const appleOrangeJuice = fruitProcessor(2,4);
 console.log(appleOrangeJuice);*/
 
+/*
 
 // function declaration
 function calcAge1(birthYear){
@@ -63,3 +64,20 @@ console.log(age2);
 
 /* Matter of personal Preference Expression vs Declaration */
 
+// Arrow Function
+const calcAge3 = birthYear => 2037 - birthYear;
+const age3 = calcAge3(1991);
+console.log(calcAge3);
+console.log(typeof(calcAge3));
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+    const age = 2037 - birthYear;
+    const retirement = 65 - age;
+    //return retirement;
+    return `${firstName} retires in ${retirement} years`;
+}
+
+// Arrow function -> many parameter -> get complicated.
+
+console.log(yearsUntilRetirement(1980, "Bob"));
+console.log(yearsUntilRetirement(1991, "Jonas"));
