@@ -14,6 +14,10 @@ document.querySelector('.guess').value = 23;
 console.log(document.querySelector('.guess').value);
 */
 
+let score = 20; // initial score
+const secretNumber = Math.trunc(Math.random() * 20) + 1;
+document.querySelector('.number').textContent = secretNumber; // Random Number
+
 const x = function () {
   console.log(23);
 };
@@ -22,10 +26,23 @@ document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
 
   console.log(guess, typeof guess);
-
-  if (!guess) {
-    document.querySelector('.message').textContent = '❌No Number';
+  if (score > 0) {
+    if (!guess) {
+      document.querySelector('.message').textContent = '❌ No Number';
+    } else if (guess === secretNumber) {
+      document.querySelector('.message').textContent = '⭕ Correct Number!';
+      score++;
+    } else if (guess > secretNumber) {
+      document.querySelector('.message').textContent = 'Too High!';
+      score--;
+    } else if (guess < secretNumber) {
+      document.querySelector('.message').textContent = 'Too Low!';
+      score--;
+    }
+  } else if (score === 0) {
+    document.querySelector('.message').textContent = 'You Lost The Game';
   }
+  document.querySelector('.score').textContent = score;
 }); // addEventListener(when to act, what to act)
 
 // Javascript will call function as soon as event happens.
