@@ -36,6 +36,11 @@ const restaurant = {
       `Order Received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]}`
     );
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
 };
 
 restaurant.orderDelivery({
@@ -110,8 +115,8 @@ const {
 console.log(restaurantName, hours, tags);
 
 // default value and class attribute alias.
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+const { menu1 = [], starterMenu: starters = [] } = restaurant;
+console.log(menu1, starters);
 
 // muatating variables(swap)
 let a = 111;
@@ -126,3 +131,49 @@ const {
   fri: { open: o, close: c },
 } = openingHours;
 console.log(o, c);
+
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr]; // set all value in arr (spread operator)
+console.log(newArr);
+
+console.log(...newArr); // pass all parameter in value
+console.log(1, 2, 7, 8, 9); // same with code on top 137.
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+// value sepearted by commas
+
+// Copy Array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join 2 Arrays
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+// Iterables: arrays, strings, maps, sets, NOT OBJECTS
+const str = ' jonas';
+const letters = [...str, ' ', 'S. '];
+console.log(letters);
+// J O N A S " " S. We can not use spread operator on Template Literals ` `
+
+const ingredients = [
+  prompt("Let's make pasta! Ingredient1?"),
+  prompt('ingredient 2?'),
+  prompt('ingredient 3?'),
+];
+
+console.log(ingredients);
+
+restaurant.orderPasta(...ingredients);
+
+// Spread operator in object
+const newRestraunt = { ...restaurant, founder: 'Guiseppe' };
+console.log(newRestraunt);
+
+const restrauntCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
