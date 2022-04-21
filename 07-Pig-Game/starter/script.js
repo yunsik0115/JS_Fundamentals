@@ -89,6 +89,7 @@ btnNew.addEventListener('click', function () {
   player1El.classList.remove('player--winner');
   player0El.classList.add('player--active');
   player1El.classList.remove('player--active');
+
   playing = true;
   currentScore = 0;
   activePlayer = 0;

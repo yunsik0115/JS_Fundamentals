@@ -30,8 +30,27 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  orderDelivery: function ({ starterIndex = 1, mainIndex = 0, time, address }) {
+    console.log(
+      `Order Received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]}`
+    );
+  },
 };
 
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'via del sole 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'via del sole 21',
+  mainIndex: 1,
+});
+/*
 // ES6 Features
 const arr = [2, 3, 4];
 const a = arr[0];
@@ -77,4 +96,33 @@ console.log(ind, jnd, knd);
 
 // Default Values (if it isn't exist on the array)
 const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r);
+console.log(p, q, r);*/
+
+// Destructuring Objects
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// default value and class attribute alias.
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// muatating variables(swap)
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+({ a, b } = obj); // we need to wrap -> Javascript expect a code block
+console.log(a, b);
+
+// Nested Objects
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
