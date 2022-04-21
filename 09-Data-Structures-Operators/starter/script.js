@@ -26,4 +26,55 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 };
+
+// ES6 Features
+const arr = [2, 3, 4];
+const a = arr[0];
+const b = arr[0];
+const c = arr[0];
+
+const [x, y, z] = arr; // destructuring array from the right side
+// x,y,z isn't array
+console.log(x, y, z);
+console.log(arr);
+
+const [first, second] = restaurant.categories;
+console.log(first, second); // extract only first and second one
+
+let [main, , secondary_cat] = restaurant.categories;
+// extract 1~3 and skip 2nd index's variable
+console.log(main, secondary_cat);
+
+// this code below can be easily done by destructuring.
+//const temp = main;
+//main = secondary_cat;
+//secondary_cat = temp;
+//console.log(main,secondary_cat);
+// like this code below
+
+[main, secondary_cat] = [secondary_cat, main];
+// we don't need temp variable if we use destructing like this.
+console.log(main, secondary_cat);
+
+console.log(restaurant.order(2, 0));
+
+let [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse);
+
+//if nested array?
+const nested = [2, 4, [5, 6]];
+const [i, , j] = nested;
+console.log(i, j);
+
+// what if we need all single value?
+const [ind, , [jnd, knd]] = nested;
+console.log(ind, jnd, knd);
+
+// Default Values (if it isn't exist on the array)
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r);
