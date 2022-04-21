@@ -41,6 +41,9 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+  orderPizza: function (mainIngerdient, ...otherIngredients) {
+    console.log(mainIngerdient, otherIngredients);
+  },
 };
 
 restaurant.orderDelivery({
@@ -103,6 +106,7 @@ console.log(ind, jnd, knd);
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);*/
 
+/*
 // Destructuring Objects
 const { name, openingHours, categories } = restaurant;
 console.log(name, openingHours, categories);
@@ -176,4 +180,36 @@ console.log(newRestraunt);
 const restrauntCopy = { ...restaurant };
 restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name);
-console.log(restaurant.name);
+console.log(restaurant.name); */
+
+// spread because on Right side of =
+// rest patterns
+const arr = [1, 2, ...[3, 4]];
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFoods] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFoods);
+// rest pattern always should be exist on the end of elements.
+
+// objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// spread operators on functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+};
+
+console.log(add(2, 3));
+
+const x = [23, 5, 7];
+console.log(add(...x));
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
