@@ -183,8 +183,9 @@ console.log(restaurantCopy.name);
 console.log(restaurant.name); */
 
 // spread because on Right side of =
+
 // rest patterns
-const arr = [1, 2, ...[3, 4]];
+/* const arr = [1, 2, ...[3, 4]];
 const [a, b, ...others] = [1, 2, 3, 4, 5];
 console.log(a, b, others);
 
@@ -246,4 +247,11 @@ if (restaurant.orderPizza) {
   restaurant.orderPizza('mushRooms', 'spinach');
 }
 
-restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach'); */
+
+// null and undefined -> nullish value
+const guests1 = restaurant.numGuests || 10;
+console.log(guests1);
+
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect); // coalescing null value to 10;
