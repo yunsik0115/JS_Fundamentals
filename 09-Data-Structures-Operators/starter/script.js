@@ -213,3 +213,37 @@ console.log(add(2, 3));
 const x = [23, 5, 7];
 console.log(add(...x));
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+
+// OR Operator
+console.log(3 || 'Jonas'); // result = 3 (result is 3)
+// they can use any data type and return any data type -> we called it short circuiting
+// if the first value is truthy value it returns first value immediately.
+console.log('' || 'Jonas'); // -> jonas
+console.log(true || 0); // -> true
+console.log(undefined || null); // undefined - falsy value so the result is null
+
+// undefiend or zero or empty string or hello or 23 or null -> result is hello (return the first truthy value)
+
+// code related to guests1,2 are gonna return same value
+//restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+// AND OPERATOR SHORT CIRCUITING
+console.log('----- AND -----');
+console.log(0 && 'Jonas'); // result is 0
+// immediately returns falsy value
+console.log(7 && 'Jonas'); // jonas will be returned
+
+console.log('hello' && 23 && null && 'jonas'); // null will be returned.
+
+//practical example
+// if statement and code below will show same result & logic
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushRooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
