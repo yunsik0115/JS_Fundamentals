@@ -249,9 +249,32 @@ if (restaurant.orderPizza) {
 
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach'); */
 
+/*
 // null and undefined -> nullish value
 const guests1 = restaurant.numGuests || 10;
 console.log(guests1);
 
 const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect); // coalescing null value to 10;
+console.log(guestCorrect); // coalescing null value to 10; */
+
+const rest1 = {
+  name: 'capru',
+  numGuests: 20,
+};
+
+const rest2 = {
+  name: 'capcap',
+  owner: 'gilbers',
+};
+
+//rest1.numGuests = rest1.numGuests || 10;
+//rest2.numGuests = rest2.numGuests || 10;
+
+rest1.numGuests ||= 10; // if guest == 0, it is a falsy value
+rest1.numGuests ??= 10; // it can solve the problem right above. nullish operator
+
+rest2.owner = rest2.owner && '<Anonymous>';
+rest1.owner &&= '<Anonymous>'; // same
+
+console.log(rest1);
+console.log(rest2);
