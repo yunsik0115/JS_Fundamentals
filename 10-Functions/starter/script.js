@@ -100,7 +100,7 @@ document.body.addEventListener('click', high5);
 // transformer function don't care what kind of function was used
 // creation the new level of function. */
 
-const greet = function (greeting) {
+/*const greet = function (greeting) {
   return function (name) {
     console.log(`${greeting} ${name}`);
   };
@@ -116,4 +116,55 @@ greet('Hello')('jonas'); // it works
 // rewriting greet function with arrow function
 
 const greetArr = greeting => name => console.log(`${greeting} ${name}`);
-greetArr('Hi')('Jonas');
+greetArr('Hi')('Jonas');*/
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+
+  book(flightNum, name) {
+    console.log(
+      `${name} booked ad seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(239, 'Jonas Schemdtmann');
+lufthansa.book(635, 'John Smith');
+console.log(lufthansa);
+
+const eurowings = {
+  name: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+// book(23, 'Sarah Williams'); // -> undefined -> irregular function call
+
+// should use apply or bind
+
+book.call(eurowings, 23, 'Sarah Williams');
+console.log(eurowings);
+
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log(lufthansa);
+
+const swiss = {
+  name: 'swiss',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 583, 'Mary Cooper');
+
+// apply method
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData); // takes arguments in array
+console.log(swiss);
+
+book.call(swiss, ...flightData); // takes arguments seperately
+
+// book.apply is same with book.call(...)
