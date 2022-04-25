@@ -118,7 +118,7 @@ greet('Hello')('jonas'); // it works
 const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 greetArr('Hi')('Jonas');*/
 
-const lufthansa = {
+/*const lufthansa = {
   airline: 'Lufthansa',
   iataCode: 'LH',
   bookings: [],
@@ -212,3 +212,30 @@ const addTaxRate = function (rate) {
 const addVAT2 = addTaxRate(0.23);
 
 // addTaxRate and addTax are same function which use same algorithms.
+*/
+
+// Immediately Invoked Function Expressions(IIFE)
+
+const runOnce = function () {
+  console.log('this will never run again');
+};
+runOnce();
+
+//IIFE
+(function () {
+  console.log('this will never run again');
+  const isPrivate = 23;
+})();
+
+console.log(isPrivate);
+
+{
+  () => console.log('This will also never run again');
+}();
+
+{
+  const isPrivate = 23; // cannot accessed outside of object
+  var notPrivate = 46; // Accessible anywhere
+}
+
+console.log(notPrivate);
