@@ -168,3 +168,47 @@ console.log(swiss);
 book.call(swiss, ...flightData); // takes arguments seperately
 
 // book.apply is same with book.call(...)
+
+// bind method
+
+const bookEW = book.bind(eurowings); // creation of new function
+const bookLX = book.bind(swiss);
+const bookLH = book.bind(lufthansa);
+
+bookEW(23, 'Steven Williams');
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Jonas Schmedtmann');
+bookEW23('Martha Cooper');
+
+// With Event Listeners
+lufthansa.planes = 300;
+
+lufthansa.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// partial application - we can preset parameters
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+// rate value is fixed and value is not fixed.
+
+console.log(addVAT(100));
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVAT2 = addTaxRate(0.23);
+
+// addTaxRate and addTax are same function which use same algorithms.
