@@ -257,7 +257,7 @@ console.log(guests1);
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect); // coalescing null value to 10; */
 
-const rest1 = {
+/* const rest1 = {
   name: 'capru',
   numGuests: 20,
 };
@@ -277,4 +277,4 @@ rest2.owner = rest2.owner && '<Anonymous>';
 rest1.owner &&= '<Anonymous>'; // same
 
 console.log(rest1);
-console.log(rest2);
+console.log(rest2); */
