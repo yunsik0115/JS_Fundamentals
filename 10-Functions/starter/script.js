@@ -63,7 +63,7 @@ const newPassport = function (person) {
 newPassport(jonas);
 checkIn(flight, jonas); */
 
-const oneWord = function (str) {
+/* const oneWord = function (str) {
   return str.replace(/ /g, '').toLowerCase();
 };
 
@@ -98,4 +98,22 @@ document.body.addEventListener('click', high5);
 // for each of them call back function will be called.
 
 // transformer function don't care what kind of function was used
-// creation the new level of function.
+// creation the new level of function. */
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('hey');
+greeterHey('Jonas');
+greeterHey('Steven');
+// Closure Mechanism must be understood to understand how it works
+
+greet('Hello')('jonas'); // it works
+// important in functional programming
+// rewriting greet function with arrow function
+
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+greetArr('Hi')('Jonas');
