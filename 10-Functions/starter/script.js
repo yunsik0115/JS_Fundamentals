@@ -216,7 +216,7 @@ const addVAT2 = addTaxRate(0.23);
 
 // Immediately Invoked Function Expressions(IIFE)
 
-const runOnce = function () {
+/*const runOnce = function () {
   console.log('this will never run again');
 };
 runOnce();
@@ -238,4 +238,24 @@ console.log(isPrivate);
   var notPrivate = 46; // Accessible anywhere
 }
 
-console.log(notPrivate);
+console.log(notPrivate);*/
+
+const secureBooking = function () {
+  // securebooking EC Variable Environment of execution context in which booker was created.
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking(); // booker function will get access to this variable environment which contains the passengerAccount Variable.
+
+booker();
+booker();
+booker();
+
+// how does booker() update passengerCount which has already gone from the STACK?
+// Closure remembers everything
+// Execution Context was terminated however booker() Execution context created on stack and Can use variable on Global scope
