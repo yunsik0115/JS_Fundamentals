@@ -29,7 +29,7 @@ createBooking('LH123', 5);
 createBooking('LH123', undefined, 1000); // undefined parameters will be set to default value
 */
 
-const flight = 'LH234';
+/*const flight = 'LH234';
 const jonas = {
   name: 'jonas Schemdtmann',
   passport: 24849646564,
@@ -61,4 +61,41 @@ const newPassport = function (person) {
   person.passport = Math.trunc(Math.random()) * 1000000000000;
 };
 newPassport(jonas);
-checkIn(flight, jonas);
+checkIn(flight, jonas); */
+
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+// higher order function
+const transformer = function (str, fn) {
+  console.log(`Original String : ${str}`);
+  console.log(`Transformed String : ${fn(str)}`);
+
+  console.log(`Transformed by : ${fn.name}`);
+};
+
+transformer('Javascript is the best!', upperFirstWord);
+// transform the string using function on the second parameter (upperfirstword)
+
+transformer('Javascript is the best!', oneWord);
+// passing the callback function on paramter.
+
+// JS Using callback all the times.
+const high5 = function () {
+  console.log('Hello!');
+}; // call back functions
+
+document.body.addEventListener('click', high5);
+// Higher order-function
+
+['jonas', 'martha', 'adam'].forEach(high5);
+// for each of them call back function will be called.
+
+// transformer function don't care what kind of function was used
+// creation the new level of function.
