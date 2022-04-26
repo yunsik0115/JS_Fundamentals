@@ -221,7 +221,7 @@ const addVAT2 = addTaxRate(0.23);
 };
 runOnce();
 
-//IIFE
+/* IIFE
 (function () {
   console.log('this will never run again');
   const isPrivate = 23;
@@ -240,7 +240,7 @@ console.log(isPrivate);
 
 console.log(notPrivate);*/
 
-const secureBooking = function () {
+/* const secureBooking = function () {
   // securebooking EC Variable Environment of execution context in which booker was created.
   let passengerCount = 0;
 
@@ -259,3 +259,28 @@ booker();
 // how does booker() update passengerCount which has already gone from the STACK?
 // Closure remembers everything
 // Execution Context was terminated however booker() Execution context created on stack and Can use variable on Global scope
+*/
+
+/*let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f();
+
+// reassigning f function
+h();
+f();
+console.dir(f); // closure will has 777*/
