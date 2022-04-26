@@ -74,3 +74,36 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+// Why arrays do have functions?
+// arrays -> functions attached to objects(Array)
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// slice method
+console.log(arr.slice(2)); // extracting c d e it returns new array4
+// it doens't mutate original array.
+console.log(arr.slice(2, 4)); // c, d will be extracted and returned as new array.
+console.log(arr.slice(-2)); // d, e will be extracted
+console.log(arr.slice(1, -2)); // b, c will be extracted.
+console.log([...arr]);
+
+// splice -> mutate the original array.
+console.log(arr.splice(2)); // extract c, d, e and delete from original array
+// arr.splice(-1); // last one will be deleted and extracted from arr.
+arr.splice(1, 2); // b, c will be deleted and only a,d will be left
+console.log(arr); // a, b will be left on arr.
+
+// reverse -> it does mutate the original array.
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse());
+console.log(arr2);
+
+// concatenation
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log([...arr, ...arr2]); // It doesn't mutate original array
+
+// join
+console.log(letters.join('-')); // by using - seperator.
