@@ -71,8 +71,6 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 /////////////////////////////////////////////////
 
 // Why arrays do have functions?
@@ -111,7 +109,7 @@ console.log(letters.join('-')); // by using - seperator.
 
 // ES 2022 at method
 
-const arr = [23, 11, 64];
+/*const arr = [23, 11, 64];
 console.log(arr[0]);
 console.log(arr.at(0));
 
@@ -123,3 +121,38 @@ console.log(arr.at(-1));
 
 // at method vs bracket notation -> if for method chaning use at method
 console.log('jonas'.at(0)); // it will give us j
+*/
+
+// forEach method on array
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+for (const [i, movement] of movements.entries()) {
+  // entries returns key and value at the same time
+  if (movement > 0) {
+    console.log(`Movement ${i + 1} You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1} You withdrew ${Math.abs(movement)}`);
+  }
+}
+console.log('---forEach---');
+
+movements.forEach(function (movement) // value, index, array {
+  // loopover each index value and execute function
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+});
+
+// for and forEach (continue and break statement doesn't work on foreach)
+
