@@ -78,7 +78,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // Why arrays do have functions?
 // arrays -> functions attached to objects(Array)
 
-let arr = ['a', 'b', 'c', 'd', 'e'];
+/*let arr = ['a', 'b', 'c', 'd', 'e'];
 
 // slice method
 console.log(arr.slice(2)); // extracting c d e it returns new array4
@@ -107,3 +107,19 @@ console.log([...arr, ...arr2]); // It doesn't mutate original array
 
 // join
 console.log(letters.join('-')); // by using - seperator.
+*/
+
+// ES 2022 at method
+
+const arr = [23, 11, 64];
+console.log(arr[0]);
+console.log(arr.at(0));
+
+// getting the last element
+// if we do not know the length of array
+console.log(arr[arr.length - 1]);
+console.log(arr.slice(-1)[0]); // last element
+console.log(arr.at(-1));
+
+// at method vs bracket notation -> if for method chaning use at method
+console.log('jonas'.at(0)); // it will give us j
