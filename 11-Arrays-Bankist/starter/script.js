@@ -339,3 +339,14 @@ movements
 // map and apply mov * eurToUsd on every value in array
 // accumulate all value in acc by using reduce method.
 // -> end of chaining.
+
+const firstWithdrawal = movements.find(mov => mov < 0); // will return true or false
+// unlike filter it will traverse the array and return if it meets the condition.
+// filter : return new array, find : return the found one
+console.log(movements);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account);
