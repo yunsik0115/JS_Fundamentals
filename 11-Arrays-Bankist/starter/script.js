@@ -61,12 +61,12 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements) {
+const displayMovements = function (acc) {
   // instead of global variable use parameters and pass it into function
 
   containerMovements.innerHTML = ''; // empty the entire new container.
   // .textContent = 0
-  movements.forEach(function (value, i) {
+  acc.movements.forEach(function (value, i) {
     // wants to create movements__row(on html file)
 
     const type = value > 0 ? 'deposit' : 'withdrawal';
@@ -84,7 +84,7 @@ const displayMovements = function (movements) {
   });
 };
 
-displayMovements(account1.movements);
+displayMovements(account1);
 console.log(containerMovements.innerHTML); // -> All of created html element will be shown.
 // afterbegin vs beforeend -> order of the movement will be inverted
 
@@ -97,28 +97,28 @@ const user = 'Steven Thomas Williams';
   })
   .join(''); // result -> stw */
 
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+const calcDisplayBalance = function (acc) {
+  const balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance} €`;
 };
 
-calcDisplayBalance(account1.movements);
+calcDisplayBalance(account1);
 
-const calcDisplaySummary = function (movements) {
-  const incomes = movements
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}€`;
 
-  const out = -movements // or Math.abs
+  const out = -acc.movements // or Math.abs
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${out}€`;
 
   // Do not mutate array
-  const interest = movements
+  const interest = acc.movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * acc.interestRate) / 100)
     .filter((int, i, arr) => {
       console.log(arr);
       return int >= 1;
@@ -127,7 +127,7 @@ const calcDisplaySummary = function (movements) {
   labelSumInterest.textContent = `${interest}€`;
 };
 
-calcDisplaySummary(account1.movements);
+calcDisplaySummary(account1);
 
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
@@ -141,6 +141,39 @@ const createUsernames = function (accs) {
 createUsernames(accounts);
 // console.log(createUsernames('Steven Thomas Williams'));
 console.log(accounts);
+
+// Event Handler
+
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  // event parameter
+
+  e.preventDefault(); // prevent form from submitting
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // DISPLAY UI MESSAGE
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
+
+    // Clear input fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
+    // DISPLAY MOVEMENTS
+    displayMovements(currentAccount);
+    // DISPLAY BALANCE
+    calcDisplayBalance(currentAccount);
+    // DISPLAY Summary
+    calcDisplaySummary(currentAccount);
+  }
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
