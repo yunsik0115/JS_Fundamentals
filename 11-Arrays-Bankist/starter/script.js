@@ -199,3 +199,34 @@ concurrenciesUnique.forEach(function (value, _, map) {
 
 // main .app class opacity has set to 0
 // we need to change to 100 to set it as visible.
+
+// 3 array method
+// 1. Map method -> based on original array creates new
+// map apply the operation and return new array
+// 2. filter literally filter and return new array which passed specified test condidion
+// 3. boil all array elements down to one single value(adding all elements together)
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const eurToUsd = 1.1;
+
+// Just like forEach
+const movementsUSD = movements.map(function (value) {
+  return value * eurToUsd;
+});
+
+// same with
+/*
+movements.map(mov=> mov * eurToUsd); */
+
+console.log(movements);
+console.log(movementsUSD);
+
+const movementDescriptions = movements.map((mov, i, arr) => {
+  if (mov > 0) {
+    return `Movement ${i + 1} You deposited ${mov}`;
+  } else {
+    return `Movement ${i + 1} You withdrew ${Math.abs(mov)}`;
+  }
+});
+
+console.log(movementDescriptions);
