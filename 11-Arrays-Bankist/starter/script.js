@@ -61,6 +61,33 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayMovements = function (movements) {
+  // instead of global variable use parameters and pass it into function
+
+  containerMovements.innerHTML = ''; // empty the entire new container.
+  // .textContent = 0
+  movements.forEach(function (value, i) {
+    // wants to create movements__row(on html file)
+
+    const type = value > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+    <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+        <div class="movements__value">${value}</div>
+    </div>
+    `; // string literal is best for creating html codes
+
+    containerMovements.insertAdjacentHTML('afterbegin', html); // position right after the beginning of the parent element
+    // should reference https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
+  });
+};
+
+displayMovements(account1.movements);
+console.log(containerMovements.innerHTML); // -> All of created html element will be shown.
+// afterbegin vs beforeend -> order of the movement will be inverted
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -169,3 +196,6 @@ const concurrenciesUnique = new Set(('USD', 'GBP', 'USD', 'EUR', 'EUR'));
 concurrenciesUnique.forEach(function (value, _, map) {
   // _ throwaway variable which is unnecessary
 });
+
+// main .app class opacity has set to 0
+// we need to change to 100 to set it as visible.
