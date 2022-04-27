@@ -88,6 +88,27 @@ displayMovements(account1.movements);
 console.log(containerMovements.innerHTML); // -> All of created html element will be shown.
 // afterbegin vs beforeend -> order of the movement will be inverted
 
+const user = 'Steven Thomas Williams';
+/*const userName = user
+  .toLowerCase()
+  .split(' ')
+  .map(function (name) {
+    return name[0];
+  })
+  .join(''); // result -> stw */
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUsernames(accounts);
+// console.log(createUsernames('Steven Thomas Williams'));
+console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
