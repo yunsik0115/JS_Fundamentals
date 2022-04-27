@@ -65,12 +65,6 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
 /////////////////////////////////////////////////
 
 // Why arrays do have functions?
@@ -125,7 +119,7 @@ console.log('jonas'.at(0)); // it will give us j
 
 // forEach method on array
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+/* const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 for (const movement of movements) {
   if (movement > 0) {
@@ -156,3 +150,22 @@ movements.forEach(function (movement) // value, index, array {
 
 // for and forEach (continue and break statement doesn't work on foreach)
 
+*/
+
+// forEach with Map
+
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]); // key, value
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key} ${value}`);
+});
+
+// forEach with Set
+const concurrenciesUnique = new Set(('USD', 'GBP', 'USD', 'EUR', 'EUR'));
+concurrenciesUnique.forEach(function (value, _, map) {
+  // _ throwaway variable which is unnecessary
+});
