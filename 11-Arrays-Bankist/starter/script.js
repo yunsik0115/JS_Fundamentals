@@ -98,8 +98,8 @@ const user = 'Steven Thomas Williams';
   .join(''); // result -> stw */
 
 const calcDisplayBalance = function (acc) {
-  const balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance} €`;
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${acc.balance} €`;
 };
 
 calcDisplayBalance(account1);
@@ -142,6 +142,15 @@ createUsernames(accounts);
 // console.log(createUsernames('Steven Thomas Williams'));
 console.log(accounts);
 
+const updateUI = function (acc) {
+  // DISPLAY MOVEMENTS
+  displayMovements(acc);
+  // DISPLAY BALANCE
+  calcDisplayBalance(acc);
+  // DISPLAY Summary
+  calcDisplaySummary(acc);
+};
+
 // Event Handler
 
 let currentAccount;
@@ -166,15 +175,30 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
 
-    // DISPLAY MOVEMENTS
-    displayMovements(currentAccount);
-    // DISPLAY BALANCE
-    calcDisplayBalance(currentAccount);
-    // DISPLAY Summary
-    calcDisplaySummary(currentAccount);
+    // Better Practice Refoctoring
+    updateUI(currentAccount);
   }
 });
 
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  inputTransferAmount.value = inputTransferTo.value = '';
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    amount <= currentAccount.balance &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    console.log('Transfer Valid');
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+  }
+  updateUI(currentAccount);
+});
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
